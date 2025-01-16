@@ -1,0 +1,139 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    background: linear-gradient(45deg, #ff6ec7, #ff7b00);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(45deg, #ff6ec7, #ff7b00);
+    }
+    50% {
+        background: linear-gradient(45deg, #ff4b5c, #2c3e50);
+    }
+    100% {
+        background: linear-gradient(45deg, #00c6ff, #0072ff);
+    }
+}
+
+img {
+    width: 420px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.btn-box {
+    width: 320px;
+    height: 320px;
+    position: relative;
+    background-image: url(ai-1.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 140, 247, 0.5), 0 0 60px rgba(0, 140, 247, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 50px rgba(0, 140, 247, 0.8), 0 0 80px rgba(0, 140, 247, 0.5);
+}
+
+button {
+    background-color: white;
+    padding: 20px;
+    border: 5px solid #008CF7;
+    border-radius: 50%;
+    font-size: 80px;
+    color: #008CF7;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(0, 140, 247, 0.7),
+        0 0 30px rgba(0, 140, 247, 0.5),
+        0 0 45px rgba(0, 140, 247, 0.3);
+}
+
+button:hover {
+    background-color: #008CF7;
+    color: white;
+    box-shadow: 0 0 25px rgba(0, 140, 247, 1),
+        0 0 50px rgba(0, 140, 247, 0.7),
+        0 0 75px rgba(0, 140, 247, 0.5);
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(0, 140, 247, 1), 
+        0 0 20px rgba(0, 140, 247, 0.7);
+}
+
+/* Particle Animation */
+@keyframes particleAnimation {
+    0% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100vw, 100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(0, 140, 247, 0.5);
+    border-radius: 50%;
+    animation: particleAnimation 3s linear infinite;
+    pointer-events: none;
+}
+
+.particle:nth-child(odd) {
+    background-color: rgba(255, 105, 180, 0.7);
+    animation-duration: 2.5s;
+}
+
+.particle:nth-child(even) {
+    background-color: rgba(255, 140, 0, 0.7);
+    animation-duration: 3.5s;
+}
+
+.particle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    animation: particleSpawner 1s infinite;
+}
+
+@keyframes particleSpawner {
+    0% {
+        top: -50px;
+        left: -50px;
+    }
+    100% {
+        top: 100%;
+        left: 100%;
+    }
+}
