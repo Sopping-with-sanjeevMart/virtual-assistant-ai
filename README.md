@@ -1,2 +1,2 @@
-# virtual-assistant-ai
+sanjeev.ai
 my first project
